@@ -1,58 +1,62 @@
 # Nestora – House Rent Application (MERN Stack)
 
-Nestora is a full-stack property rental platform designed to simplify the process of finding, listing, and managing rental properties. The application enables tenants to search and book properties while allowing landlords and agents to manage property listings efficiently.
+Nestora is a full-stack property rental platform that allows users to search, explore, and book rental properties easily. The platform enables tenants to browse available homes while allowing landlords and agents to manage listings efficiently.
 
-The platform is built using the **MERN Stack (MongoDB, Express.js, React, Node.js)** and includes features such as authentication, property management, booking workflows, reviews, and real-time messaging.
-Live link - Live Demo: https://nestora-property-rental.vercel.app/
+Built using the **MERN Stack (MongoDB, Express.js, React, Node.js)**, the application includes authentication, property listings, booking workflows, reviews, and real-time chat functionality.
+
+---
+
+# Live Demo
+
+https://nestora-property-rental.vercel.app/
+
 ---
 
 # Features
 
-## User Authentication
+### User Authentication
 
-* Secure user registration and login using **JWT authentication**
-* Protected routes and session management
-* User profile management
+* Secure login and registration using JWT authentication
+* Protected routes and user session handling
 
-## Role-Based Access Control
+### Role-Based Access
 
 The platform supports three types of users:
 
 * **Tenant** – Browse and book properties
-* **Landlord** – Manage owned properties
-* **Agent** – Manage properties for multiple landlords
+* **Landlord** – Manage property listings
+* **Agent** – Manage properties for landlords
 
-## Property Management
+### Property Management
 
-* Create, update, and delete property listings
+* Add, edit, and delete property listings
 * Upload property images
-* Display property details including price, location, and amenities
+* View detailed property information
 
-## Property Search and Filters
+### Property Search
 
-Users can filter properties based on:
+Users can filter properties by:
 
-* City
+* Location
 * Price range
-* Number of bedrooms
-* Number of bathrooms
+* Bedrooms
+* Bathrooms
 * Property type
 
-## Booking System
+### Booking System
 
-* Tenants can request property bookings
-* Landlords or agents can approve or reject booking requests
-* Booking status tracking
+* Tenants can request bookings
+* Landlords or agents can approve or reject requests
 
-## Real-Time Messaging
+### Real-Time Messaging
 
-* Integrated chat system using **Socket.io**
-* Allows direct communication between tenants and property owners
+* Chat system built using Socket.io
+* Direct communication between tenants and property owners
 
-## Reviews and Ratings
+### Reviews and Ratings
 
-* Users can leave ratings and reviews for properties
-* Helps future tenants evaluate listings
+* Users can leave reviews on properties
+* Helps future users evaluate listings
 
 ---
 
@@ -76,7 +80,27 @@ Users can filter properties based on:
 * React Router
 * Axios
 * Socket.io Client
-* CSS / Tailwind CSS
+* Tailwind CSS / CSS
+
+---
+
+# Screenshots
+
+### Home Page
+
+![Home Page](home.png)
+
+### Property Details Page
+
+![Property Details](property-details.png)
+
+### AI Assistant Chat Feature
+
+![AI Assistant](chat%20assistant.png)
+
+### Login Page
+
+![Login Page](login.png)
 
 ---
 
@@ -123,20 +147,20 @@ Make sure the following tools are installed:
 
 # Installation
 
-## 1 Clone the Repository
+### Clone the Repository
 
 ```
-git clone https://github.com/yourusername/nestora-property-rental.git
+git clone https://github.com/AnushkaBharti2/Nestora-property-rental.git
 ```
 
-## 2 Install Backend Dependencies
+### Install Backend Dependencies
 
 ```
 cd server
 npm install
 ```
 
-## 3 Install Frontend Dependencies
+### Install Frontend Dependencies
 
 ```
 cd client
@@ -166,21 +190,21 @@ CLIENT_URL=http://localhost:5173
 
 # Running the Application
 
-## Start Backend Server
+### Start Backend Server
 
 ```
 cd server
 npm run dev
 ```
 
-## Start Frontend Client
+### Start Frontend Client
 
 ```
 cd client
 npm run dev
 ```
 
-Open the application in your browser:
+Open your browser and go to:
 
 ```
 http://localhost:5173
@@ -188,45 +212,9 @@ http://localhost:5173
 
 ---
 
-# API Endpoints
-
-## Authentication
-
-* POST `/api/auth/register`
-* POST `/api/auth/login`
-* GET `/api/auth/me`
-
-## Properties
-
-* GET `/api/properties`
-* GET `/api/properties/:id`
-* POST `/api/properties`
-* PUT `/api/properties/:id`
-* DELETE `/api/properties/:id`
-* GET `/api/properties/featured`
-
-## Bookings
-
-* GET `/api/bookings`
-* POST `/api/bookings`
-* PUT `/api/bookings/:id/status`
-
-## Reviews
-
-* GET `/api/reviews/property/:id`
-* POST `/api/reviews`
-
-## Messages
-
-* GET `/api/messages/conversations`
-* GET `/api/messages/:conversationId`
-* POST `/api/messages`
-
----
-
 # Team
 
-This project was developed as part of a collaborative group project.
+This project was developed as part of a **group project**.
 
 ### Team Members
 
@@ -235,12 +223,10 @@ This project was developed as part of a collaborative group project.
 * **Ayush Garhwal** — Member
 * **Anushka Bharti** — Member
 
-Each member contributed to different components of the project including frontend development, backend APIs, database integration, testing, and deployment.
+Each member contributed to different parts of the application including frontend development, backend APIs, database integration, testing, and deployment.
 
 ---
 
 # Project Purpose
 
 This project demonstrates the development of a **full-stack MERN application** implementing authentication, role-based access control, property listing management, booking workflows, and real-time communication using Socket.io.
-
-ISC
