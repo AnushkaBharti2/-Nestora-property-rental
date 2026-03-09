@@ -1,179 +1,246 @@
-# House Rent App - MERN Stack Application
+# Nestora – House Rent Application (MERN Stack)
 
-A full-stack rental property management application built with MongoDB, Express, React, and Node.js.
+Nestora is a full-stack property rental platform designed to simplify the process of finding, listing, and managing rental properties. The application enables tenants to search and book properties while allowing landlords and agents to manage property listings efficiently.
 
-## Features
+The platform is built using the **MERN Stack (MongoDB, Express.js, React, Node.js)** and includes features such as authentication, property management, booking workflows, reviews, and real-time messaging.
 
-- **User Authentication**: Register, login, logout with JWT tokens
-- **Role-based Access Control**: Tenant, Landlord, and Agent roles
-- **Property Management**: Create, read, update, delete property listings
-- **Search & Filter**: Filter properties by city, price, bedrooms, bathrooms, etc.
-- **Booking System**: Request bookings, approve/reject bookings
-- **Real-time Chat**: Socket.io powered messaging system
-- **Reviews & Ratings**: Leave reviews for properties
+---
 
-## Tech Stack
+# Features
 
-### Backend
-- Node.js
-- Express.js
-- MongoDB with Mongoose
-- JWT for authentication
-- Socket.io for real-time communication
-- Cloudinary for image uploads
-- Multer for file handling
+## User Authentication
 
-### Frontend
-- React with Vite
-- React Router for navigation
-- Axios for API calls
-- Socket.io-client for real-time chat
-- CSS for styling
+* Secure user registration and login using **JWT authentication**
+* Protected routes and session management
+* User profile management
 
-## Project Structure
+## Role-Based Access Control
+
+The platform supports three types of users:
+
+* **Tenant** – Browse and book properties
+* **Landlord** – Manage owned properties
+* **Agent** – Manage properties for multiple landlords
+
+## Property Management
+
+* Create, update, and delete property listings
+* Upload property images
+* Display property details including price, location, and amenities
+
+## Property Search and Filters
+
+Users can filter properties based on:
+
+* City
+* Price range
+* Number of bedrooms
+* Number of bathrooms
+* Property type
+
+## Booking System
+
+* Tenants can request property bookings
+* Landlords or agents can approve or reject booking requests
+* Booking status tracking
+
+## Real-Time Messaging
+
+* Integrated chat system using **Socket.io**
+* Allows direct communication between tenants and property owners
+
+## Reviews and Ratings
+
+* Users can leave ratings and reviews for properties
+* Helps future tenants evaluate listings
+
+---
+
+# Tech Stack
+
+## Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+* Socket.io
+* Cloudinary (Image storage)
+* Multer (File upload handling)
+
+## Frontend
+
+* React.js
+* Vite
+* React Router
+* Axios
+* Socket.io Client
+* CSS / Tailwind CSS
+
+---
+
+# Project Structure
 
 ```
-house-rent-app/
-├── server/                 # Backend server
-│   ├── config/            # Database & cloudinary config
-│   ├── models/           # Mongoose models
-│   ├── routes/           # API routes
-│   ├── middleware/       # Auth, role, upload middleware
-│   ├── controllers/      # Business logic
-│   ├── socket/           # Socket.io logic
-│   └── server.js         # Entry point
+house-rent-app
 │
-├── client/                # Frontend React app
-│   ├── src/
-│   │   ├── components/   # React components
-│   │   ├── pages/        # Page components
-│   │   ├── context/      # React context
-│   │   ├── hooks/        # Custom hooks
-│   │   ├── utils/        # Utility functions
-│   │   └── App.jsx       # Main app component
+├── server
+│   ├── config
+│   ├── models
+│   ├── routes
+│   ├── middleware
+│   ├── controllers
+│   ├── socket
+│   └── server.js
+│
+├── client
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── context
+│   │   ├── hooks
+│   │   ├── utils
+│   │   └── App.jsx
 │   └── package.json
 │
 └── README.md
 ```
 
-## Getting Started
+---
 
-### Prerequisites
+# Getting Started
 
-- Node.js (v14 or higher)
-- MongoDB (local or Atlas)
-- npm or yarn
+## Prerequisites
 
-### Installation
+Make sure the following tools are installed:
 
-1. **Clone the repository**
+* Node.js (v14 or above)
+* MongoDB (Local installation or MongoDB Atlas)
+* npm or yarn
 
-2. **Install server dependencies**
-   
+---
+
+# Installation
+
+## 1 Clone the Repository
+
 ```
-bash
-   cd server
-   npm install
-   
-```
-
-3. **Install client dependencies**
-   
-```
-bash
-   cd client
-   npm install
-   
+git clone https://github.com/yourusername/nestora-property-rental.git
 ```
 
-4. **Configure environment variables**
+## 2 Install Backend Dependencies
 
-   Create a `.env` file in the `server` directory:
-   
 ```
-env
-   PORT=5000
-   MONGODB_URI=your-mongodb-uri
-   JWT_SECRET=your-secret-key
-   JWT_EXPIRE=7d
-   CLOUDINARY_CLOUD_NAME=your-cloud-name
-   CLOUDINARY_API_KEY=your-api-key
-   CLOUDINARY_API_SECRET=your-api-secret
-   CLIENT_URL=http://localhost:5173
-   
+cd server
+npm install
 ```
 
-5. **Start MongoDB** (if using local)
+## 3 Install Frontend Dependencies
 
-6. **Run the server**
-   
 ```
-bash
-   cd server
-   npm run dev
-   
+cd client
+npm install
 ```
 
-7. **Run the client**
-   
+---
+
+# Environment Variables
+
+Create a `.env` file inside the **server** folder.
+
 ```
-bash
-   cd client
-   npm run dev
-   
+PORT=5000
+MONGODB_URI=your-mongodb-uri
+JWT_SECRET=your-secret-key
+JWT_EXPIRE=7d
+
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret
+
+CLIENT_URL=http://localhost:5173
 ```
 
-8. **Open your browser**
-   Navigate to `http://localhost:5173`
+---
 
-## API Endpoints
+# Running the Application
 
-### Auth
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user
+## Start Backend Server
 
-### Properties
-- `GET /api/properties` - Get all properties
-- `GET /api/properties/:id` - Get single property
-- `POST /api/properties` - Create property (Landlord/Agent)
-- `PUT /api/properties/:id` - Update property
-- `DELETE /api/properties/:id` - Delete property
-- `GET /api/properties/featured` - Get featured properties
+```
+cd server
+npm run dev
+```
 
-### Bookings
-- `GET /api/bookings` - Get all bookings
-- `POST /api/bookings` - Create booking
-- `PUT /api/bookings/:id/status` - Update booking status
+## Start Frontend Client
 
-### Reviews
-- `GET /api/reviews/property/:id` - Get property reviews
-- `POST /api/reviews` - Create review
+```
+cd client
+npm run dev
+```
 
-### Messages
-- `GET /api/messages/conversations` - Get conversations
-- `GET /api/messages/:conversationId` - Get messages
-- `POST /api/messages` - Send message
+Open the application in your browser:
 
-## User Roles
+```
+http://localhost:5173
+```
 
-### Tenant
-- Browse properties
-- Make booking requests
-- Leave reviews
-- Chat with landlords/agents
+---
 
-### Landlord
-- All tenant features
-- Create/manage properties
-- Approve/reject booking requests
-- View earnings dashboard
+# API Endpoints
 
-### Agent
-- All tenant features
-- Create/manage properties (multiple landlords)
-- Approve/reject booking requests
+## Authentication
 
-## License
+* POST `/api/auth/register`
+* POST `/api/auth/login`
+* GET `/api/auth/me`
+
+## Properties
+
+* GET `/api/properties`
+* GET `/api/properties/:id`
+* POST `/api/properties`
+* PUT `/api/properties/:id`
+* DELETE `/api/properties/:id`
+* GET `/api/properties/featured`
+
+## Bookings
+
+* GET `/api/bookings`
+* POST `/api/bookings`
+* PUT `/api/bookings/:id/status`
+
+## Reviews
+
+* GET `/api/reviews/property/:id`
+* POST `/api/reviews`
+
+## Messages
+
+* GET `/api/messages/conversations`
+* GET `/api/messages/:conversationId`
+* POST `/api/messages`
+
+---
+
+# Team
+
+This project was developed as part of a collaborative group project.
+
+### Team Members
+
+* **Mayank Ahirwar** — Team Lead
+* **Aryan Rai** — Member
+* **Ayush Garhwal** — Member
+* **Anushka Bharti** — Member
+
+Each member contributed to different components of the project including frontend development, backend APIs, database integration, testing, and deployment.
+
+---
+
+# Project Purpose
+
+This project demonstrates the development of a **full-stack MERN application** implementing authentication, role-based access control, property listing management, booking workflows, and real-time communication using Socket.io.
 
 ISC
