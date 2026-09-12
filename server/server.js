@@ -23,7 +23,8 @@ const setupSocket = require('./socket/socket');
 
 // MongoDB is optional for the self-contained hackathon agent demo.
 // Set AGENT_DEMO_MODE=false when connecting to a real Nestora database.
-if (process.env.AGENT_DEMO_MODE !== 'true') connectDB();
+if (process.env.MONGODB_URI) connectDB();
+else console.log('Agent demo mode: MongoDB not required.');
 
 const app = express();
 const server = http.createServer(app);
