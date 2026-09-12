@@ -1,88 +1,140 @@
-# Nestora – House Rent Application (MERN Stack)
+# 🏠 Nestora – AI-Powered Property Rental Platform
 
-Nestora is a full-stack property rental platform that allows users to search, explore, and book rental properties easily. The platform enables tenants to browse available homes while allowing landlords and agents to manage listings efficiently.
+## 🤖 Agentic AI Rental Assistant
 
-Built using the **MERN Stack (MongoDB, Express.js, React, Node.js)**, the application includes authentication, property listings, booking workflows, reviews, and real-time chat functionality.
+Nestora is a full-stack property rental platform enhanced with an **Agentic AI Rental Assistant** that can understand a user's rental goal, dynamically select actions, execute a multi-step search workflow, evaluate results, verify availability, and adapt when constraints or availability change.
 
----
+### 🚀 Live Demo
 
-# Live Demo
+**[Try Nestora Agentic AI Live](https://nestora-property-rental-1.onrender.com)**
 
-https://nestora-property-rental.vercel.app/
+### 💻 Source Code
 
----
-
-# Features
-
-### User Authentication
-
-* Secure login and registration using JWT authentication
-* Protected routes and user session handling
-
-### Role-Based Access
-
-The platform supports three types of users:
-
-* **Tenant** – Browse and book properties
-* **Landlord** – Manage property listings
-* **Agent** – Manage properties for landlords
-
-### Property Management
-
-* Add, edit, and delete property listings
-* Upload property images
-* View detailed property information
-
-### Property Search
-
-Users can filter properties by:
-
-* Location
-* Price range
-* Bedrooms
-* Bathrooms
-* Property type
-
-### Booking System
-
-* Tenants can request bookings
-* Landlords or agents can approve or reject requests
-
-### Real-Time Messaging
-
-* Chat system built using Socket.io
-* Direct communication between tenants and property owners
-
-### Reviews and Ratings
-
-* Users can leave reviews on properties
-* Helps future users evaluate listings
+**[GitHub Repository](https://github.com/AnushkaBharti2/-Nestora-property-rental)**
 
 ---
 
-# Tech Stack
+## 🧠 What Makes Nestora Agentic?
 
-## Backend
+Unlike a conventional chatbot that only generates text, the Nestora Agent works toward a user-defined rental goal by performing a sequence of actions.
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
-* JWT Authentication
-* Socket.io
-* Cloudinary (Image storage)
-* Multer (File upload handling)
+### Agent Workflow
 
-## Frontend
+**User Goal → Decision → Tool Selection → Action → Intermediate Result → Adaptation → Final Recommendation**
 
-* React.js
-* Vite
-* React Router
-* Axios
-* Socket.io Client
-* Tailwind CSS / CSS
+The agent can:
+
+- Understand natural-language rental requirements
+- Identify constraints such as budget, location, furnishing and parking
+- Search the property inventory
+- Retrieve property details
+- Check property availability
+- Rank matching properties
+- Shortlist a selected property
+- Adapt its plan when a preferred property is unavailable
+- Return an explainable recommendation with the reasoning behind the selection
 
 ---
+
+## ⚡ Example Agent Execution
+
+### User Goal
+
+> Find me a furnished 1BHK in Bangalore under ₹25,000 near Electronic City with parking.
+
+### Agent Execution
+
+**1. Goal Understanding**  
+Extracts the user's requirements:
+- Location: Electronic City
+- Configuration: 1BHK
+- Budget: ≤ ₹25,000/month
+- Furnishing: Furnished
+- Parking: Required
+
+**2. Dynamic Action Selection**  
+The agent determines that it needs to:
+- Search properties
+- Rank matching properties
+- Verify availability
+
+**3. Property Search**  
+The agent searches the available property inventory and identifies relevant candidates.
+
+**4. Verification**  
+The agent checks availability before presenting the recommendation.
+
+**5. Ranking**  
+Properties are evaluated against the user's constraints to identify the strongest match.
+
+**6. Final Outcome**  
+The agent returns the best available property and explains why it fits the user's requirements.
+
+---
+
+## 🔄 Adaptive Agent Behavior
+
+Nestora also demonstrates adaptation when an expected result changes.
+
+For example, if the highest-ranked property is unavailable, the agent does not simply stop or return the unavailable property.
+
+Instead, it:
+
+**Detects unavailable property → Re-evaluates candidates → Selects an alternative → Verifies availability → Returns updated recommendation**
+
+This demonstrates **goal-driven, multi-step and adaptive behavior** rather than simple text generation.
+
+---
+
+## 🛠️ Agent Tools
+
+The Nestora Agent currently operates through the following tools:
+
+| Tool | Purpose |
+|---|---|
+| `search_properties` | Searches properties using user constraints |
+| `get_property_details` | Retrieves detailed information about a property |
+| `check_availability` | Verifies whether a property is available |
+| `rank_properties` | Scores and ranks candidate properties |
+| `shortlist_property` | Adds a selected property to the user's shortlist |
+
+---
+
+## 🏗️ Architecture
+
+```text
+                    ┌──────────────────────┐
+                    │      User Goal       │
+                    │ Natural Language     │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    Nestora Agent     │
+                    │ Goal Interpretation  │
+                    │ Planning & Decisions │
+                    └──────────┬───────────┘
+                               │
+                  ┌────────────┼────────────┐
+                  ▼            ▼            ▼
+           Search Tool   Details Tool   Availability
+                  │            │            │
+                  └────────────┼────────────┘
+                               ▼
+                    ┌──────────────────────┐
+                    │   Candidate Ranking  │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   Adaptation Layer   │
+                    │ Re-plan if needed    │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │ Final Recommendation │
+                    └──────────────────────┘
 
 # Screenshots
 
@@ -210,23 +262,65 @@ Open your browser and go to:
 http://localhost:5173
 ```
 
----
-
-# Team
-
-This project was developed as part of a **group project**.
-
-### Team Members
-
-* **Mayank Ahirwar** — Team Lead
-* **Aryan Rai** — Member
-* **Ayush Garhwal** — Member
-* **Anushka Bharti** — Member
 
 Each member contributed to different parts of the application including frontend development, backend APIs, database integration, testing, and deployment.
 
 ---
+💡 Key Agentic AI Capabilities
+Goal-Driven Execution
 
+The agent works toward the user's rental objective rather than generating a generic response.
+
+Dynamic Action Selection
+
+The agent decides which tools/actions are required based on the user's request.
+
+Multi-Step Execution
+
+A single request can trigger multiple sequential operations such as searching, ranking and availability verification.
+
+Adaptation
+
+When a property becomes unavailable or constraints change, the agent can reconsider the available candidates and produce an updated plan.
+
+Explainability
+
+The interface exposes the agent's activity, including the goal, actions performed, results and adaptation.
+
+🧰 Technology Stack
+
+Frontend
+
+React
+Vite
+Tailwind CSS
+
+Backend
+
+Node.js
+Express.js
+
+Agentic AI
+
+Google Gemini
+Tool/function-based agent workflow
+Session-based agent state
+
+Database / Data Layer
+
+MongoDB/Mongoose for the original rental platform
+Self-contained property inventory for the hackathon demonstration
+
+Other Technologies
+
+JWT Authentication
+Socket.io
+Cloudinary
 # Project Purpose
 
 This project demonstrates the development of a **full-stack MERN application** implementing authentication, role-based access control, property listing management, booking workflows, and real-time communication using Socket.io.
+---
+
+## 👩‍💻Author
+
+**Anushka Bharti**
